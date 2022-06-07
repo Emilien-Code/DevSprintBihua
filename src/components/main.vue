@@ -4,8 +4,8 @@
     <h1  >LIBRAIRIE EXPÉRIENCE</h1>
 
     <span :style="{transform :`translateY(${-this.position/10 + 270}px)` }">100% indépendante</span>
-
     <span :style="{transform :`translateY(${-this.position/5 +500}px)` }">Depuis  1973</span>
+
 
 
     <div id="discover">
@@ -72,6 +72,7 @@ export default {
     background-color: #FFF5E6;
     width: 100vw;
     height: 2059px;
+    overflow: hidden;
   }
   #discover{
     position: relative;
@@ -93,7 +94,6 @@ export default {
     height: 41px;
     left: 25%;
     top: 250px;
-
     background: #5E5E5E;
     color: #FFFFFF;
     border-radius: 28px;
@@ -113,6 +113,30 @@ export default {
   @media (max-width: 1385px) {
     #img{
       left:  25%;
+    }
+    span{
+      padding: 4px 12px;
+      font-size: 12px;
+      height: 22px;
+    }
+  }
+
+  @media (max-width: 1385px) {
+    #img{
+      width: 100%;
+      left: 0;
+      border-radius: unset;
+      top: 501px;
+    }
+    h1{
+      text-align: center;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p, h4{
+      color: #FFFFFF;
     }
 
   }

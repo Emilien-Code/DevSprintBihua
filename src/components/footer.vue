@@ -4,6 +4,8 @@
     <div id="infos">
       <div id="slider">
         <h2>EXPÉRIENCE</h2>        <h2>EXPÉRIENCE</h2><h2>EXPÉRIENCE</h2>         <h2>EXPÉRIENCE</h2> <h2>EXPÉRIENCE</h2>
+        <h2>EXPÉRIENCE</h2>        <h2>EXPÉRIENCE</h2><h2>EXPÉRIENCE</h2>         <h2>EXPÉRIENCE</h2> <h2>EXPÉRIENCE</h2>
+
       </div>
       <div id="container">
         <div id="suivre">
@@ -116,12 +118,25 @@ h4{
   }
 
   99.9999999%{
-    transform: translateX(-725px);
+    transform: translateX(-732px);
   }
   100%{
       transform: translateX(0%);
   }
 }
+@keyframes translateMobile {
+  0%  {
+    transform: translateX(0%);
+  }
+
+  99.9999999%{
+    transform: translateX(-153px);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
 
 #suivre{
   margin: 100px 0 18px 0;
@@ -198,6 +213,17 @@ span{
 @media (max-width: 1385px) {
   #container{
     flex-direction: column;
+  }
+  button  {
+    transform: translateY(4%);
+  }
+  #slider {
+    margin-top: 40px;
+    display: flex;
+    animation: translateMobile 5s linear infinite;
+  }
+  h2{
+    margin-right: 12px;
   }
 }
 </style>

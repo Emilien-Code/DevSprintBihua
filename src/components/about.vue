@@ -26,7 +26,6 @@ export default {
 #about  {
   display: flex;
   background-color: #E85243;
-  height: 1024px;
 }
 img {
   width: 708px;
@@ -55,7 +54,7 @@ h4  {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 1024px;
 }
 
 p{
@@ -76,6 +75,7 @@ p{
 @media (max-width: 1385px) {
   #about{
     flex-direction: column-reverse;
+    /*height: none;*/
   }
   #container{
     display: flex;

@@ -10,7 +10,7 @@
       Tous nos événements
     </a>
 
-    <div id="programContainer">
+    <div id="programContainer" :style="{transform: `translateX(${positionX}px)`}" >
       <div class="book">
         <div class="top">
           <img src="../assets/image1.png" alt="">
@@ -49,6 +49,20 @@
 
 
     </div>
+    <div id="buttons">
+
+      <button @click="previous" :class="{notClickable: count==1}">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 16L9.41 14.59L3.83 9L16 9L16 7L3.83 7L9.42 1.42L8 -3.49691e-07L-3.49691e-07 8L8 16Z" fill="#FFF5E5"/>
+        </svg>
+      </button>
+      <button @click="next" :class="{notClickable: count==3}">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 16L9.41 14.59L3.83 9L16 9L16 7L3.83 7L9.42 1.42L8 -3.49691e-07L-3.49691e-07 8L8 16Z" fill="#FFF5E5"/>
+        </svg>
+      </button>
+
+    </div>
 
 
     </div>
@@ -60,15 +74,25 @@ export default {
   name: 'about',
   data: function () {
     return {
-      p:0
+      positionX: 0,
+      count: 1,
     }
   },
-  created () {
-    window.addEventListener('scroll', this.scrollH);
-  },
   methods: {
-    scrollH(){
-      this.p = window.scrollY;
+    previous(){
+      if(this.count > 1){
+        this.positionX += 322+24;
+        this.count--;
+      }
+    },
+    next(){
+      if (this.count < 3){
+
+
+      this.positionX = -this.count * (322+24);
+      this.count++;
+      }
+
     }
   }
 }
@@ -83,7 +107,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  overflow: hidden;
 }
 
 p{
@@ -110,6 +134,7 @@ a{
   display: flex;
   justify-content: space-around;
   width: 1044px;
+  transition: .5s ease;
 }
 
 .top{
@@ -134,5 +159,61 @@ span{
   flex-direction: column;
   align-items: center;
 }
+#buttons{
+  display: none;
+  display: inline-block;
+}
+
+@media (max-width: 1385px) {
+#program{
+  align-items: flex-start;
+  padding: 20px;
+  overflow: hidden;
+}
+  p{
+    text-align: left;
+  }
+  a{
+    width: 280px;
+    text-align: center;
+  }
+
+  Button{
+    background-color: #1D1D1D;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: .5s ease;
+  }
+  Button:nth-child(2){
+    transform: rotateZ(180deg);
+  }
+
+  #buttons{
+    position: absolute;
+    z-index: 1;
+    right: 50%;
+    top: 7400px;
+    transform: translateX(50px);
+
+  }
+
+
+
+}
+
+
+
+.notClickable{
+  opacity: 0;
+  transition: .5s ease;
+}
+.notClickable svg {
+  fill: #1D1D1D;
+}
+
 
 </style>

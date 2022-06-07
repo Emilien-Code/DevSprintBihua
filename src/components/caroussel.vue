@@ -1,6 +1,6 @@
 <template>
   <div id="caroussel">
-    <div id="container" :style="{transform: `translateX(${positionX}px)`}" :class="{noTransition : count < 1 }" >
+    <div id="container" :style="{transform: `translateX(${positionX}px)`, transitionDuration : `${duration}s`}">
 
       <div class="article">
         <div class="top">
@@ -89,6 +89,15 @@
         </div>
         <div class="bottom">
           <span>COUCHÉ DU SOLEIL</span><span>19,99€</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="top">
+          <img src="../assets/caroussel/10-ANS-DE-LA-GOUTTIERE-1.png" alt="">
+        </div>
+        <div class="bottom">
+          <span>10 ANS DE LA GOUTTIÈRE</span><span>19,99€</span>
         </div>
       </div>
 
@@ -156,25 +165,30 @@ export default {
   data: function () {
     return {
       positionX: 0,
-      count: 1
-
+      count: 1,
+      duration : 0.5
     }
   },
   methods: {
     previous(){
+      this.duration = 0.5;
       if(this.count > 1){
         this.positionX += 322+24;
         this.count--;
       }
     },
     next(){
-      this.positionX = -this.count * (322+24);
-      this.count++;
+      this.duration = 0.5;
 
       if (this.count == 6){
         this.count = 0;
-
+        this.duration = 0;
       }
+
+      this.positionX = -this.count * (322+24);
+      this.count++;
+
+
       console.log(this.count)
     }
   }
@@ -225,12 +239,11 @@ export default {
   Button:nth-child(2){
     transform: rotateZ(180deg);
   }
-  Button svg{
-    color : #FFF5E5;
-  }
+
   #buttons{
     position: absolute;
     right: 115px;
   }
+
 
 </style>
