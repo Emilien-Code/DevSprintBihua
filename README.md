@@ -20,5 +20,11 @@ npm run build
 npm run lint
 ```
 
+
+### Bugs 
+    **Responsive** :    - manque de temps 
+                        - superposition display column non anticipé
+                        - oublie de mettre la durée de transition a 0 pour le caroussel 
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
